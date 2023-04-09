@@ -9,10 +9,10 @@ const ExpenseList = () => {
         <table className="table">
             <thead className="thead-light">
                 <tr>
-                    <td scope="col">Department</td>
-                    <td scope="col">Allocated budget</td>
-                    <td scope="col">Increase by 10</td>
-                    <td scope="col">Delete</td>
+                    <th scope="col">Department</th>
+                    <th scope="col">Allocated budget</th>
+                    <th scope="col">Increase by 10</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>

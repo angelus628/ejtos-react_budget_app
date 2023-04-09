@@ -6,7 +6,14 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
+
     const submitEvent = () => {
+        if (isNaN(parseInt(cost))) {
+            alert("This field only accepts numbers");
+            setCost('');
+            return;
+        }
+
         if (cost > remaining) {
             alert("The values cannot exceed remaining funds £" + remaining);
             setCost('');
@@ -56,7 +63,15 @@ const AllocationForm = (props) => {
                         <option value="Reduce" name="Reduce">Reduce</option>
                     </select>
 
-                    <input required="required" type="number" id="cost" value={cost} style={{marginLeft: "2rem", fontSize: 10}} onChange={(e) => setCost(e.target.value)} />
+                    <input
+                        required="required"
+                        type="number"
+                        pattern="^\d+$"
+                        id="cost"
+                        value={cost}
+                        style={{marginLeft: "2rem", fontSize: 10}}
+                        onChange={(e) => setCost(e.target.value)}
+                    />
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{marginLeft: "2rem"}}>Save</button>
                 </div>
