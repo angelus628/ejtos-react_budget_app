@@ -50,27 +50,21 @@ export const AppReducer = (state, action) => {
                     budget = state.budget + currentExp.cost
                     currentExp.cost =  0;
                 }
-                return currentExp
-            })
+                return currentExp})
             action.type = "DONE";
-            return {
-                ...state,
-                budget
-            };
+            return {...state, budget};
         case 'SET_BUDGET':
             action.type = "DONE";
             state.budget = action.payload;
-
-            return {
-                ...state,
-            };
+            return {...state};
         case 'CHG_CURRENCY':
             action.type = "DONE";
             state.currency = action.payload;
-            return {
-                ...state
-            }
-
+            return {...state}
+        case 'CHANGE_CURRENCY':
+            action.type = "DONE";
+            state.currency = action.payload;
+            return {...state}
         default:
             return state;
     }
